@@ -11,5 +11,8 @@ namespace ScholarBarter.Models
     public string ListName { get; set; }
     public string description { get; set; }
     public string Date { get; set; }
+
+
+        ///
   }
 }
