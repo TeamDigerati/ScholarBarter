@@ -13,6 +13,6 @@ namespace ScholarBarter.Models
     public string Date { get; set; }
 
 
-        ///
+       
   }
 }
