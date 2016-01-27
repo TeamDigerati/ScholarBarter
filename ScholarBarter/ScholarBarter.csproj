@@ -39,11 +39,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotLiquid, Version=1.6.1.0, Culture=neutral, PublicKeyToken=82e46016ecf9f07c, processorArchitecture=MSIL">
+      <HintPath>..\packages\email.1.1.1\lib\net40\DotLiquid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="email, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\email.1.1.1\lib\net40\email.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="ServiceStack.Text, Version=3.6.8.20237, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\email.1.1.1\lib\net40\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Reactive, Version=1.0.10621.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\email.1.1.1\lib\net40\System.Reactive.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
