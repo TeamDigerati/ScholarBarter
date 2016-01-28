@@ -1,0 +1,30 @@
+﻿<head>
+	<html ng-app="userApp">
+	<head>
+		<meta charset="utf-8">
+			<title>Angular.js Example</title>
+	<script src="Scripts/angular.min.js"></script>
+	<script>
+	  var userApp = angular.module('userApp', []);
+	  userApp.controller('CountryCtrl', function ($scope, $http) {
+	    $http.get('https://raw.githubusercontent.com/TeamDigerati/ScholarBarter/master/userData.json').success(function (data) {
+	      $scope.users = data;
+	    });
+	  });
+		</script>
+	</head>
+	<body ng-controller="CountryCtrl">
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Contact</th>
+			</tr>
+			<tr ng-repeat="user in users">
+				<td>{{user.id}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.Contact}}</td>
+			</tr>
+		</table>
+	</body>
+	</html>

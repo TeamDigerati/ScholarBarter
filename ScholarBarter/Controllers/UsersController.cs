@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using ScholarBarter.Models;
 
@@ -24,9 +25,11 @@ namespace ScholarBarter.Controllers
              new User { ID = 2, userName = "Domnick", userAddress = "A", phone = "78845545"},
              new User { ID = 3, userName = "Kshitija", userAddress = "S", phone = "6456445" }
          };
-      public IEnumerable<User> GetAllUsers()
+    
+      public string Get()
       {
-        return users;
+        string json = Json.Encode(users);
+        return json;
       }
     }
   }
