@@ -1,0 +1,598 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Simplify.Mail</name>
+    </assembly>
+    <members>
+        <member name="T:Simplify.Mail.IHideObjectMembers">
+            <summary>
+            Helper interface used to hide the base <see cref="T:System.Object" />
+            members from the fluent API to make it much cleaner
+            in Visual Studio intellisense.
+            </summary>
+        </member>
+        <member name="M:Simplify.Mail.IHideObjectMembers.GetType">
+            <summary>
+            Gets the type.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Simplify.Mail.IHideObjectMembers.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Simplify.Mail.IHideObjectMembers.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:Simplify.Mail.IHideObjectMembers.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Simplify.Mail.IMailSender">
+            <summary>
+            Represent E-mail sending interface
+            </summary>
+        </member>
+        <member name="M:Simplify.Mail.IMailSender.Send(System.Net.Mail.SmtpClient,System.Net.Mail.MailMessage,System.String)">
+            <summary>
+            Send single e-mail.
+            </summary>
+            <param name="client">Smtp client.</param>
+            <param name="mailMessage">The mail message.</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+        </member>
+        <member name="M:Simplify.Mail.IMailSender.Send(System.Net.Mail.MailMessage,System.String)">
+            <summary>
+            Send single e-mail
+            </summary>
+            <param name="mailMessage">The mail message.</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+        </member>
+        <member name="M:Simplify.Mail.IMailSender.Send(System.Net.Mail.SmtpClient,System.String,System.String,System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send single e-mail
+            </summary>
+            <param name="client">Smtp client</param>
+            <param name="from">From mail address</param>
+            <param name="to">Recipient e-mail address</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>
+            Process status, <see langword="true" /> if message is processed to sent successfully
+            </returns>
+        </member>
+        <member name="M:Simplify.Mail.IMailSender.Send(System.String,System.String,System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send single e-mail using config SMTP user name and password
+            </summary>
+            <param name="from">From mail address</param>
+            <param name="to">Recipient e-mail address</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if message is processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.IMailSender.SendSeparately(System.Net.Mail.SmtpClient,System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients separately
+            </summary>
+            <param name="client">Smtp client</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.IMailSender.SendSeparately(System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients separately
+            </summary>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.IMailSender.Send(System.Net.Mail.SmtpClient,System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients in one e-mail
+            </summary>
+            <param name="client">Smtp client</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.IMailSender.Send(System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients in one e-mail
+            </summary>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.IMailSender.Send(System.Net.Mail.SmtpClient,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients and carbon copy recipients in one e-mail
+            </summary>
+            <param name="client">Smtp client</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="ccAddresses">Carbon copy recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.IMailSender.Send(System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients and carbon copy recipients in one e-mail
+            </summary>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="ccAddresses">Carbon copy recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="P:Simplify.Mail.IMailSender.Settings">
+            <summary>
+            MailSender settings
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.IMailSender.SmtpClient">
+            <summary>
+            Get current SMTP client
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Simplify.Mail.IMailSenderSettings">
+            <summary>
+            Represent MailSender settings
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.IMailSenderSettings.SmtpServerAddress">
+            <summary>
+            The SMTP server address
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.IMailSenderSettings.SmtpServerPortNumber">
+            <summary>
+            The SMTP server port number
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.IMailSenderSettings.SmtpUserName">
+            <summary>
+            The mail sender SMTP user name
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.IMailSenderSettings.SmtpUserPassword">
+            <summary>
+            The mail sender SMTP user password
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.IMailSenderSettings.AntiSpamPoolMessageLifeTime">
+            <summary>
+            Anti-spam pool message life time (min.)
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.IMailSenderSettings.AntiSpamMessagesPoolOn">
+            <summary>
+            Anit-spam messages pool on
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.IMailSenderSettings.EnableSsl">
+            <summary>
+            Gets a value indicating whether SSL is enabled for connection.
+            </summary>
+            <value>
+            <c>true</c> if SSL is enabled for connection; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Simplify.Mail.MailSender">
+            <summary>
+            E-mail sending class
+            </summary>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simplify.Mail.MailSender"/> class.
+            </summary>
+            <param name="configurationSectionName">Name of the configuration section in the configuration file.</param>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.#ctor(System.String,System.Int32,System.String,System.String,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simplify.Mail.MailSender"/> class.
+            </summary>
+            <param name="smtpServerAddress">The SMTP server address.</param>
+            <param name="smtpServerPortNumber">The SMTP server port number.</param>
+            <param name="smtpUserName">Name of the SMTP user.</param>
+            <param name="smtpUserPassword">The SMTP user password.</param>
+            <param name="enableSsl">Enables SSL connection.</param>
+            <param name="antiSpamMessagesPoolOn">Enables anti-spam messages pool.</param>
+            <param name="antiSpamPoolMessageLifeTime">The anti-spam pool message life time.</param>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.#ctor(Simplify.Mail.IMailSenderSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simplify.Mail.MailSender"/> class.
+            </summary>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.ArgumentNullException">settings</exception>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.Send(System.Net.Mail.SmtpClient,System.Net.Mail.MailMessage,System.String)">
+            <summary>
+            Send single e-mail.
+            </summary>
+            <param name="client">Smtp client.</param>
+            <param name="mailMessage">The mail message.</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.Send(System.Net.Mail.MailMessage,System.String)">
+            <summary>
+            Send single e-mail
+            </summary>
+            <param name="mailMessage">The mail message.</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.Send(System.Net.Mail.SmtpClient,System.String,System.String,System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send single e-mail
+            </summary>
+            <param name="client">Smtp client</param>
+            <param name="from">From mail address</param>
+            <param name="to">Recipient e-mail address</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>
+            Process status, <see langword="true" /> if message is processed to sent successfully
+            </returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.Send(System.String,System.String,System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send single e-mail
+            </summary>
+            <param name="from">From mail address</param>
+            <param name="to">Recipient e-mail address</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if message is processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.SendSeparately(System.Net.Mail.SmtpClient,System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients separately
+            </summary>
+            <param name="client">Smtp client</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.SendSeparately(System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients separately
+            </summary>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.Send(System.Net.Mail.SmtpClient,System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients in one e-mail
+            </summary>
+            <param name="client">Smtp client</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.Send(System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients in one e-mail
+            </summary>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.Send(System.Net.Mail.SmtpClient,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients and carbon copy recipients in one e-mail
+            </summary>
+            <param name="client">Smtp client</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="ccAddresses">Carbon copy recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSender.Send(System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail to multiple recipients and carbon copy recipients in one e-mail
+            </summary>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="ccAddresses">Carbon copy recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>Process status, <see langword="true"/> if all messages are processed to sent successfully</returns>
+        </member>
+        <member name="P:Simplify.Mail.MailSender.Default">
+            <summary>
+            Default MailSender instance
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.MailSender.Settings">
+            <summary>
+            MailSender settings
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.MailSender.SmtpClient">
+            <summary>
+            Get current SMTP client
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Simplify.Mail.MailSenderAsyncExtensions">
+            <summary>
+            Provides MailSender asynchronous operations extensions
+            </summary>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderAsyncExtensions.SendAsync(Simplify.Mail.IMailSender,System.Net.Mail.SmtpClient,System.String,System.String,System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send single e-mail asynchronously
+            </summary>
+            <param name="mailSender">The mail sender.</param>
+            <param name="client">Smtp client</param>
+            <param name="from">From mail address</param>
+            <param name="to">Recipient e-mail address</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>
+            Process status, <see langword="true" /> if message is processed to sent successfully
+            </returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderAsyncExtensions.SendAsync(Simplify.Mail.IMailSender,System.String,System.String,System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send single e-mail asynchronously using config SMTP user name and password
+            </summary>
+            <param name="mailSender">The mail sender.</param>
+            <param name="from">From mail address</param>
+            <param name="to">Recipient e-mail address</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderAsyncExtensions.SendSeparatelyAsync(Simplify.Mail.IMailSender,System.Net.Mail.SmtpClient,System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail asynchronously to multiple recipients separately
+            </summary>
+            <param name="mailSender">The mail sender.</param>
+            <param name="client">Smtp client</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>
+            Process status, <see langword="true" /> if all messages are processed to sent successfully
+            </returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderAsyncExtensions.SendSeparatelyAsync(Simplify.Mail.IMailSender,System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail asynchronously to multiple recipients separately
+            </summary>
+            <param name="mailSender">The mail sender.</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>
+            Process status, <see langword="true" /> if all messages are processed to sent successfully
+            </returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderAsyncExtensions.SendAsync(Simplify.Mail.IMailSender,System.Net.Mail.SmtpClient,System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail asynchronously to multiple recipients in one e-mail
+            </summary>
+            <param name="mailSender">The mail sender.</param>
+            <param name="client">Smtp client</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>
+            Process status, <see langword="true" /> if all messages are processed to sent successfully
+            </returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderAsyncExtensions.SendAsync(Simplify.Mail.IMailSender,System.String,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail asynchronously to multiple recipients in one e-mail
+            </summary>
+            <param name="mailSender">The mail sender.</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>
+            Process status, <see langword="true" /> if all messages are processed to sent successfully
+            </returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderAsyncExtensions.SendAsync(Simplify.Mail.IMailSender,System.Net.Mail.SmtpClient,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail asynchronously to multiple recipients and carbon copy recipients in one e-mail
+            </summary>
+            <param name="mailSender">The mail sender.</param>
+            <param name="client">Smtp client</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="ccAddresses">Carbon copy recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>
+            Process status, <see langword="true" /> if all messages are processed to sent successfully
+            </returns>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderAsyncExtensions.Send(Simplify.Mail.IMailSender,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Net.Mail.Attachment[])">
+            <summary>
+            Send e-mail asynchronously to multiple recipients and carbon copy recipients in one e-mail
+            </summary>
+            <param name="mailSender">The mail sender.</param>
+            <param name="fromMailAddress">From mail address</param>
+            <param name="addresses">Recipients</param>
+            <param name="ccAddresses">Carbon copy recipients</param>
+            <param name="subject">e-mail subject</param>
+            <param name="body">e-mail body</param>
+            <param name="bodyForAntiSpam">Part of an e-mail body just for anti-spam checking</param>
+            <param name="attachments">The attachments to an e-mail.</param>
+            <returns>
+            Process status, <see langword="true" /> if all messages are processed to sent successfully
+            </returns>
+        </member>
+        <member name="T:Simplify.Mail.MailSenderException">
+            <summary>
+            The exception class using for MailSender exceptions
+            </summary>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simplify.Mail.MailSenderException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="T:Simplify.Mail.MailSenderSettings">
+            <summary>
+            Represents MailSender settings
+            </summary>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderSettings.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simplify.Mail.MailSenderSettings"/> class.
+            </summary>
+            <param name="configSectionName">Name of the configuration section in the configuration file.</param>
+            <exception cref="T:Simplify.Mail.MailSenderException">
+            No MailSenderSettings section in config file.
+            or
+            MailSenderSettings SmtpServerAddress is empty or missing from config file.
+            or
+            MailSenderSettings SmtpUserName is empty or missing from config file.
+            or
+            MailSenderSettings SmtpUserPassword is empty or missing from config file.
+            </exception>
+        </member>
+        <member name="M:Simplify.Mail.MailSenderSettings.#ctor(System.String,System.Int32,System.String,System.String,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simplify.Mail.MailSenderSettings"/> class.
+            </summary>
+            <param name="smtpServerAddress">The SMTP server address.</param>
+            <param name="smtpServerPortNumber">The SMTP server port number.</param>
+            <param name="smtpUserName">Name of the SMTP user.</param>
+            <param name="smtpUserPassword">The SMTP user password.</param>
+            <param name="enableSsl">Enables SSL connection.</param>
+            <param name="antiSpamMessagesPoolOn">Enables anti-spam messages pool.</param>
+            <param name="antiSpamPoolMessageLifeTime">The anti-spam pool message life time.</param>
+        </member>
+        <member name="P:Simplify.Mail.MailSenderSettings.SmtpServerAddress">
+            <summary>
+            The SMTP server address
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.MailSenderSettings.SmtpServerPortNumber">
+            <summary>
+            The SMTP server port number
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.MailSenderSettings.SmtpUserName">
+            <summary>
+            The mail sender SMTP user name
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.MailSenderSettings.SmtpUserPassword">
+            <summary>
+            The mail sender SMTP user password
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.MailSenderSettings.AntiSpamPoolMessageLifeTime">
+            <summary>
+            Anti-spam pool message life time (min.)
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.MailSenderSettings.AntiSpamMessagesPoolOn">
+            <summary>
+            Anit-spam messages pool on
+            </summary>
+        </member>
+        <member name="P:Simplify.Mail.MailSenderSettings.EnableSsl">
+            <summary>
+            Gets a value indicating whether SSL is enabled for connection.
+            </summary>
+            <value>
+            <c>true</c> if SSL is enabled for connection; otherwise, <c>false</c>.
+            </value>
+        </member>
+    </members>
+</doc>

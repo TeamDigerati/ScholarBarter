@@ -1,0 +1,1430 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Reimers.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Reimers.Core.HomeWorkType">
+            <summary>
+            	You may combine HomeWorkType and PhoneType, and FLAG them to reflect the attributes of vCard.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.HomeWorkType.Unknown">
+            <summary>
+            	Type is unknown.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.HomeWorkType.Home">
+            <summary>
+            	Home number.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.HomeWorkType.Work">
+            <summary>
+            	Work number.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.PhoneType">
+            <summary>
+            	Enumeration of defined phone types.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.PhoneType.Unknown">
+            <summary>
+            	Phone type is unknown.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.PhoneType.Voice">
+            <summary>
+            	Phone type is voice.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.PhoneType.Fax">
+            <summary>
+            	Phone type is fax.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.PhoneType.Msg">
+            <summary>
+            	Phone type is message.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.PhoneType.Cell">
+            <summary>
+            	Phone type is cell phone.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.PhoneType.Pager">
+            <summary>
+            	Phone type is pager.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Extensions">
+            <summary>
+            	Holds extension methods.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            	Performs the passed action on each item in the collection.
+            </summary>
+            <param name="collection">
+            	The <see cref="T:System.Collections.Generic.IEnumerable`1"/> to iterate over.
+            </param>
+            <param name="action">
+            	The <see cref="T:System.Action"/> to perform.
+            </param>
+            <typeparam name="T">
+            	The <see cref="T:System.Type"/> of items in the collection.
+            </typeparam>
+        </member>
+        <member name="T:Reimers.Core.Geocoding.IDirections">
+            <summary>
+            	Defines the public interface for travel directions.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IDirections.Routes">
+            <summary>
+            	Gets the <see cref="T:Reimers.Core.Geocoding.IRoute"/> making up the trip.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Geocoding.IGeocodeResult">
+            <summary>
+            	Defines the public interface for a geocode result.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IGeocodeResult.Directions">
+            <summary>
+            	Gets the <see cref="T:Reimers.Core.Geocoding.IDirections"/> returned in the response.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IGeocodeResult.Locations">
+            <summary>
+            	Gets the <see cref="T:Reimers.Core.Geocoding.ILocation"/> returned in the response.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IGeocodeResult.Status">
+            <summary>
+            	Gets the <see cref="T:Reimers.Core.Maps.GeocodeStatus"/> of the result.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Geocoding.ILeg">
+            <summary>
+            	Defines the public interface for a leg of a route.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.ILeg.Distance">
+            <summary>
+            	Gets the distance to travel, in meters.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.ILeg.Duration">
+            <summary>
+            	Gets the duration of the travel time.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.ILeg.EndLocation">
+            <summary>
+            	Gets the end location.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.ILeg.StartLocation">
+            <summary>
+            	Gets the start location.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.ILeg.Steps">
+            <summary>
+            	Gets the indivdual <see cref="T:Reimers.Core.Geocoding.IStep"/> in the leg.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Geocoding.ILocation">
+            <summary>
+            	Defines the public interface for a geographic location.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.ILocation.Address">
+            <summary>
+            	Gets or sets the <see cref="T:Reimers.Core.Maps.IAddress"/> of the location.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.ILocation.ErrorInformation">
+            <summary>
+            	Gets or sets the error message associated with the GoogleLocation.
+            </summary>
+            <value>A <see cref="T:System.String"/> value.</value>
+            <returns>The error information as a <see cref="T:System.String"/> value.</returns>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.ILocation.Point">
+            <summary>
+            	Gets or sets the geographic point of the GoogleLocation.
+            </summary>
+            <value>A <see cref="T:Reimers.Core.Maps.ICoordinates"/> value.</value>
+            <returns>The location as a <see cref="T:Reimers.Core.Maps.ICoordinates"/> value.</returns>
+        </member>
+        <member name="T:Reimers.Core.Geocoding.IRoute">
+            <summary>
+            	Defines the public interface for a travel route.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IRoute.Copyright">
+            <summary>
+            	Gets the copyright information for the route data.
+            </summary>
+            <remarks>
+            	This copyright information must be displayed when displaying the route.
+            </remarks>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IRoute.Distance">
+            <summary>
+            	Gets the total distance of the route.
+            </summary>
+            <remarks>
+            	<para>
+            		The value is given in meters.
+            	</para>
+            </remarks>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IRoute.Duration">
+            <summary>
+            	Gets the duration of the route.
+            </summary>
+            <remarks>
+            	<para>
+            		The value is given in seconds.
+            	</para>
+            </remarks>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IRoute.Legs">
+            <summary>
+            	Gets the <see cref="T:System.Collections.Generic.List`1"/> of legs contained in the route.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IRoute.Line">
+            <summary>
+            	Gets the <see cref="T:Reimers.Core.Maps.IGeoPolyline"/> displaying the route.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IRoute.Summary">
+            <summary>
+            	Gets the plain text summary for the directions.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IRoute.SummaryHTML">
+            <summary>
+            	Gets the HTML formatted summary for the directions.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Geocoding.IStep">
+            <summary>
+            	Defines the public interface for a step in a travel route.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IStep.Description">
+            <summary>
+            	Gets the plain text description for the step.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IStep.DescriptionHTML">
+            <summary>
+            	Gets the HTML formatted description for the step.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IStep.Distance">
+            <summary>
+            	Gets the distance of the step.
+            </summary>
+            <remarks>
+            	<para>
+            		The value is given in meters.
+            	</para>
+            </remarks>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IStep.Duration">
+            <summary>
+            	Gets the duration of the route.
+            </summary>
+            <remarks>
+            	<para>
+            		The value is given in seconds.
+            	</para>
+            </remarks>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IStep.EndLocation">
+            <summary>
+            	Gets the <see cref="T:Reimers.Core.Maps.ICoordinates"/> of the end point.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IStep.Line">
+            <summary>
+            	Gets a <see cref="T:Reimers.Core.Maps.IGeoPolyline"/> displaying the <see cref="T:Reimers.Core.Geocoding.IStep"/>.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Geocoding.IStep.StartLocation">
+            <summary>
+            	Gets the <see cref="T:Reimers.Core.Maps.ICoordinates"/> of the starting point.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.IContact">
+            <summary>
+            	Defines the public interface for contact information.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.Addresses">
+            <summary>
+            	Gets or sets the addresses of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.Birthday">
+            <summary>
+            	Gets or sets the birthday of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.Emails">
+            <summary>
+            	Gets or sets the email addresses of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.FormattedName">
+            <summary>
+            	Gets or sets the formatted name of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.GivenName">
+            <summary>
+            	Gets or sets the given name of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.MiddleName">
+            <summary>
+            	Gets or sets the middle name of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.Notes">
+            <summary>
+            	Gets or sets the notes attached to the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.Organization">
+            <summary>
+            	Gets or sets the organization of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.Phones">
+            <summary>
+            	Gets or sets the phone numbers of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.Prefix">
+            <summary>
+            	Gets or sets the prefix of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.Suffix">
+            <summary>
+            	Gets or sets the suffix of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.Surname">
+            <summary>
+            	Gets or sets the surname of the contact.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IContact.Title">
+            <summary>
+            	Gets or sets the title of the contact.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.IDeepCloneable`1">
+            <summary>
+            	Defines the interface for any object that can be deep cloned.
+            </summary>
+            <remarks>
+            	A deep cloned object should be equal to the original as value but not as reference.
+            </remarks>
+            <typeparam name="T">The <see cref="T:System.Type"/> to clone.</typeparam>
+        </member>
+        <member name="M:Reimers.Core.IDeepCloneable`1.DeepClone">
+            <summary>
+            	Returns a deep cloned representation of the original.
+            </summary>
+            <returns>
+            	An object equal to the original in value, but not in reference.
+            </returns>
+        </member>
+        <member name="T:Reimers.Core.DeepCloneableContract`1">
+            <summary>
+            	The deep cloneable contract.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> of the instance to deep clone.</typeparam>
+        </member>
+        <member name="M:Reimers.Core.DeepCloneableContract`1.DeepClone">
+            <summary>
+            	Returns a deep cloned representation of the original.
+            </summary>
+            <returns>A separate reference instance of the object.</returns>
+        </member>
+        <member name="T:Reimers.Core.IEmail">
+            <summary>
+            	Defines the public interface for an email address.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IEmail.Address">
+            <summary>
+            	Gets or sets the email address.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IEmail.HomeWork">
+            <summary>
+            	Gets or sets whether the email address is for home or work use.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IEmail.Preferred">
+            <summary>
+            	Gets or sets a value indicating whether the email address is the preferred.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.IPhoneNumber">
+            <summary>
+            	Defines the public interface for a phone number.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IPhoneNumber.HomeWork">
+            <summary>
+            	Gets or sets the phone use.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IPhoneNumber.Number">
+            <summary>
+            	Gets or sets the number.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IPhoneNumber.PhoneType">
+            <summary>
+            	Gets or sets the phone type.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.IPhoneNumber.Preferred">
+            <summary>
+            	Gets or sets a value indicating whether the number is the preferred number.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Kml.IKmlReader">
+            <summary>
+            	Defines the public interface for the KML reader.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Kml.IKmlReader.Read(System.Xml.Linq.XDocument)">
+            <summary>
+            	Creates the overlays from the passed KML document.
+            </summary>
+            <param name="kml">
+            	The KML document.
+            </param>
+            <returns>
+            	Returns an <see cref="T:System.Collections.Generic.IEnumerable`1"/> of the parsed overlays.
+            </returns>
+        </member>
+        <member name="T:Reimers.Core.Kml.KmlReaderContract">
+            <summary>
+            	The kml reader contract.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Kml.KmlReaderContract.Read(System.Xml.Linq.XDocument)">
+            <summary>
+            	Creates the overlays from the passed KML document.
+            </summary>
+            <param name="kml">
+            	The KML document.
+            </param>
+            <returns>
+            	Returns an <see cref="T:System.Collections.Generic.IEnumerable`1"/> of the parsed overlays.
+            </returns>
+        </member>
+        <member name="T:Reimers.Core.Kml.IKmlWriter">
+            <summary>
+            	Defines the public interface for a KML writer.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Kml.IKmlWriter.Write(System.Collections.Generic.IEnumerable{Reimers.Core.Maps.IOverlay})">
+            <summary>
+            	Writes the passed overlay to a KML formatted document.
+            </summary>
+            <param name="overlays">
+            	The <see cref="T:System.Collections.Generic.IEnumerable`1"/> to contain in the KML document.
+            </param>
+        </member>
+        <member name="M:Reimers.Core.Kml.IKmlWriter.Write(Reimers.Core.Maps.IOverlay)">
+            <summary>
+            	Writes the passed overlay to a KML formatted document.
+            </summary>
+            <param name="overlay">
+            	The <see cref="T:Reimers.Core.Maps.IOverlay"/> to contain in the KML document.
+            </param>
+        </member>
+        <member name="P:Reimers.Core.Kml.IKmlWriter.Document">
+            <summary>
+            Gets the written KML document.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Kml.KmlWriterContract">
+            <summary>
+            	The kml writer contract.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Kml.KmlWriterContract.Write(System.Collections.Generic.IEnumerable{Reimers.Core.Maps.IOverlay})">
+            <summary>
+            	Writes the passed overlay to a KML formatted document.
+            </summary>
+            <param name="overlays">
+            	The <see cref="T:System.Collections.Generic.IEnumerable`1"/> to contain in the KML document.
+            </param>
+        </member>
+        <member name="M:Reimers.Core.Kml.KmlWriterContract.Write(Reimers.Core.Maps.IOverlay)">
+            <summary>
+            	Writes the passed overlay to a KML formatted document.
+            </summary>
+            <param name="overlay">
+            	The <see cref="T:Reimers.Core.Maps.IOverlay"/> to contain in the KML document.
+            </param>
+        </member>
+        <member name="P:Reimers.Core.Kml.KmlWriterContract.Document">
+            <summary>
+            Gets the written KML document.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.TravelMode">
+            <summary>
+            	Enumeration of travel modes when requesting directions.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.TravelMode.Default">
+            <summary>
+            	Default mode.
+            </summary>
+            <remarks>
+            	<para>
+            		Driving directions use highways.
+            	</para>
+            </remarks>
+        </member>
+        <member name="F:Reimers.Core.Maps.TravelMode.Walking">
+            <summary>
+            	Directions for walking.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.TravelMode.Driving">
+            <summary>
+            	Directions for driving.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.TravelMode.DrivingAvoidTolls">
+            <summary>
+            	Directions for driving on non-toll roads.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.TravelMode.DrivingAvoidHighways">
+            <summary>
+            	Directions for driving on non-highways.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.TravelMode.Bicycling">
+            <summary>
+            	Directions for bicycling.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.Units">
+            <summary>
+            	Enumeration of different units for length measurement.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.Units.Metric">
+            <summary>
+            	Returns the measurement calculations in kilometers.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.Units.Nautical">
+            <summary>
+            	Returns the measurement calculations in nautical miles.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.Units.Imperial">
+            <summary>
+            	Returns the measurement calculations in statute miles.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.DataFormat">
+            <summary>
+            	Enumeration of different data formats.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.DataFormat.KML">
+            <summary>
+            	Google Earth compliant XML document.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.DataFormat.GPX">
+            <summary>
+            	GPS compliant XML document.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.DataFormat.ViewState">
+            <summary>
+            	Viewstate string value.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.DataFormat.Address">
+            <summary>
+            	KML formatted address values
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.GeocodeStatus">
+            <summary>
+            	Enumeration of different status codes for Google's Geocode service.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeStatus.UnknownError">
+            <summary>
+            	Unknown response.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeStatus.OK">
+            <summary>
+            	A successful geocoding.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeStatus.NotFound">
+            <summary>
+            	Geocoding point could not be found.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeStatus.ZeroResults">
+            <summary>
+            	No results returned.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeStatus.MaxWaypointsExceeded">
+            <summary>
+            	Too many waypoints defined in request.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeStatus.InvalidRequest">
+            <summary>
+            	Request was invalid.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeStatus.OverQueryLimit">
+            <summary>
+            	Applicatin has made too many requests.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeStatus.RequestDenied">
+            <summary>
+            	Request denied by the service.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.GeocodeAccuracy">
+            <summary>
+            	Enumeration of different accuracies of a geocode result.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeAccuracy.UnknownLocation">
+            <summary>
+            	Location is unknown.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeAccuracy.Country">
+            <summary>
+            	Country level accuracy.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeAccuracy.Region">
+            <summary>
+            	Region level accuracy.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeAccuracy.SubRegion">
+            <summary>
+            	Sub-Region level accuracy.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeAccuracy.Town">
+            <summary>
+            	Town level accuracy.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeAccuracy.PostCode">
+            <summary>
+            	Postcode level accuracy.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeAccuracy.Street">
+            <summary>
+            	Street level accuracy.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeAccuracy.Intersection">
+            <summary>
+            	Intersection level accuracy.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.GeocodeAccuracy.Address">
+            <summary>
+            	Address level accuracy.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.RequestType">
+            <summary>
+            	Enumeration of supported geocoding request types.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.RequestType.Geocode">
+            <summary>
+            	Request for address geocoding.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.RequestType.Directions">
+            <summary>
+            	Request for directions.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.RequestType.ReverseGeocode">
+            <summary>
+            	Request for coordinate geocoding.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.AreaLevel">
+            <summary>
+            	Enumeration of available detail levels.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.AreaLevel.Country">
+            <summary>
+            	Precise to country level.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.AreaLevel.State">
+            <summary>
+            	Precise to state level.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.AreaLevel.County">
+            <summary>
+            	Precise to county level.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.AreaLevel.PostCode">
+            <summary>
+            	Precise to postcode level.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.AreaLevel.City">
+            <summary>
+            	Precise to city level.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.AreaLevel.Village">
+            <summary>
+            	Precise to village level.
+            </summary>
+        </member>
+        <member name="F:Reimers.Core.Maps.AreaLevel.Unknown">
+            <summary>
+            	Unknown precision.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.IAddress">
+            <summary>
+            	Defines the base interface for a geographic address.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IAddress.Accuracy">
+            <summary>
+            	Gets or sets the accuracy of the address information.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IAddress.AdministrativeArea">
+            <summary>
+            	Gets or sets the administrative area of the address.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IAddress.City">
+            <summary>
+            	Gets or sets the city of the Address.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IAddress.Country">
+            <summary>
+            	Gets or sets the country of the address.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IAddress.PostBox">
+            <summary>
+            	Gets or sets PostBox of the address.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IAddress.Region">
+            <summary>
+            	Gets or sets the region of the address.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IAddress.Street">
+            <summary>
+            	Gets or sets the street of the address.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IAddress.Zip">
+            <summary>
+            	Gets or sets the zip code of the address.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.ICoordinates">
+            <summary>
+            	Defines the interface for geographic coordinates.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.IGeography">
+            <summary>
+            Marker interface for geographical types.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Maps.ICoordinates.ToString(System.String)">
+            <summary>
+            	Returns a formatted string representation of the coordinates.
+            </summary>
+            <param name = "format">
+            	The format definition.
+            </param>
+            <returns>
+            	The coordinates in the requested format.
+            </returns>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICoordinates.Latitude">
+            <summary>
+            	Gets or sets latitude of the coordinates.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICoordinates.Longitude">
+            <summary>
+            	Gets or sets longitude of the coordinates.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.CoordinatesContract">
+            <summary>
+            	The coordinates contract.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Maps.CoordinatesContract.ToString(System.String)">
+            <summary>
+            	Returns a formatted string representation of the coordinates.
+            </summary>
+            <param name = "format">
+            	The format definition.
+            </param>
+            <returns>
+            	The coordinates in the requested format.
+            </returns>
+        </member>
+        <member name="M:Reimers.Core.Maps.CoordinatesContract.Equals(Reimers.Core.Maps.ICoordinates)">
+            <summary>
+            	Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            	true if the current object is equal to the <paramref name = "other" /> parameter; otherwise, false.
+            </returns>
+            <param name = "other">An object to compare with this object.
+            </param>
+        </member>
+        <member name="M:Reimers.Core.Maps.CoordinatesContract.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            	Formats the value of the current instance using the specified format.
+            </summary>
+            <returns>
+            	A <see cref = "T:System.String" /> containing the value of the current instance in the specified format.
+            </returns>
+            <param name = "format">The <see cref = "T:System.String" /> specifying the format to use.
+            	-or- 
+            	null to use the default format defined for the type of the <see cref = "T:System.IFormattable" /> implementation. 
+            </param>
+            <param name = "formatProvider">The <see cref = "T:System.IFormatProvider" /> to use to format the value.
+            	-or- 
+            	null to obtain the numeric format information from the current locale setting of the operating system. 
+            </param>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Reimers.Core.Maps.CoordinatesContract.Latitude">
+            <summary>
+            	Gets or sets Latitude.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.CoordinatesContract.Longitude">
+            <summary>
+            	Gets or sets Longitude.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.ICountryDetails">
+            <summary>
+            	Public interface for structured country information.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICountryDetails.Bounds">
+            <summary>
+            	Gets or sets the geographic bounds of the country.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICountryDetails.Capital">
+            <summary>
+            	Gets or sets the capital of the country.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICountryDetails.CurrencyCode">
+            <summary>
+            	Gets or sets the currency code for the country.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICountryDetails.ID">
+            <summary>
+            	Gets or sets the ID of the country
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICountryDetails.InternetDomain">
+            <summary>
+            	Gets or sets the top level domain name of the country.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICountryDetails.Name">
+            <summary>
+            	Gets or sets the name of the country.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICountryDetails.Point">
+            <summary>
+            	Gets or sets the geographic center point of the country.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICountryDetails.Region">
+            <summary>
+            	Gets or sets the region of the country.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICountryDetails.Shapes">
+            <summary>
+            	Gets or sets the <see cref="T:Reimers.Core.Maps.IGeoPolyline"/> defining the country outline.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ICountryDetails.Size">
+            <summary>
+            	Gets or sets the size of the surface area of the country.
+            </summary>
+            <remarks>
+            	Size is specified in sq.km.
+            </remarks>
+        </member>
+        <member name="T:Reimers.Core.Maps.IGeoArea">
+            <summary>
+            	Public interface for a geographic area.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoArea.ID">
+            <summary>
+            	Gets the ID of the area.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoArea.Level">
+            <summary>
+            	Gets or sets the level of the area.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoArea.Name">
+            <summary>
+            	Gets or sets the Name of the area.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoArea.Outline">
+            <summary>
+            	Gets or sets the outline of the area.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.IGeoLocation">
+            <summary>
+            	Public interface for geographic location.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoLocation.Coordinates">
+            <summary>
+            	Gets or sets the geographic coordinates.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoLocation.CountryID">
+            <summary>
+            	Gets or sets the ID of the containing country.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoLocation.Feature">
+            <summary>
+            	Gets or sets the feature code.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoLocation.FullName">
+            <summary>
+            	Gets or sets the full name of the location.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoLocation.Rank">
+            <summary>
+            	Gets or sets the importance ranking.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.IGeoRectangle">
+            <summary>
+            	Defines the base interface for a geographic rectangle.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Maps.IGeoRectangle.Add(Reimers.Core.Maps.ICoordinates)">
+            <summary>
+            	Extends the rectangle to contain the passed coordinates.
+            </summary>
+            <param name="coordinates">
+            	The <see cref="T:Reimers.Core.Maps.ICoordinates"/> to add to the rectangle.
+            </param>
+            <returns>
+            	The bounds containing the added coordinates.
+            </returns>
+        </member>
+        <member name="M:Reimers.Core.Maps.IGeoRectangle.Add(Reimers.Core.Maps.IGeoRectangle)">
+            <summary>
+            	Extends the rectangle to contain the passed <see cref="T:Reimers.Core.Maps.IGeoRectangle"/>.
+            </summary>
+            <param name="bounds">
+            	The <see cref="T:Reimers.Core.Maps.IGeoRectangle"/> to add to the rectangle.
+            </param>
+            <returns>
+            	The bounds containing the added <see cref="T:Reimers.Core.Maps.IGeoRectangle"/>.
+            </returns>
+        </member>
+        <member name="M:Reimers.Core.Maps.IGeoRectangle.Contains(Reimers.Core.Maps.ICoordinates)">
+            <summary>
+            	Returns whether the bounding rectangle contains the passed coordinates.
+            </summary>
+            <param name="coordinates">
+            	The <see cref="T:Reimers.Core.Maps.ICoordinates"/> to check.
+            </param>
+            <returns>
+            	Returns true if the coordinates are inside the bounding rectangle, otherwise false.
+            </returns>
+        </member>
+        <member name="M:Reimers.Core.Maps.IGeoRectangle.Contains(Reimers.Core.Maps.IGeoRectangle)">
+            <summary>
+            	Returns whether the bounding rectangle contains the passed bounding box.
+            </summary>
+            <param name="bounds">
+            	The <see cref="T:Reimers.Core.Maps.IGeoRectangle"/> to check.
+            </param>
+            <returns>
+            	Returns true if the bounds are inside the bounding rectangle, otherwise false.
+            </returns>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoRectangle.Center">
+            <summary>
+            	Gets the geographic center of the rectangle.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoRectangle.MaxLatitude">
+            <summary>
+            	Gets or sets maximum latitude.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoRectangle.MaxLongitude">
+            <summary>
+            	Gets or sets maximum longitude.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoRectangle.MinLatitude">
+            <summary>
+            	Gets or sets minimum latitude.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoRectangle.MinLongitude">
+            <summary>
+            	Gets or sets minimum longitude.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.GeoRectangleContract">
+            <summary>
+            	The geo rectangle contract.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Maps.GeoRectangleContract.Equals(Reimers.Core.Maps.IGeoRectangle)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Reimers.Core.Maps.GeoRectangleContract.Add(Reimers.Core.Maps.ICoordinates)">
+            <summary>
+            	Extends the rectangle to contain the passed coordinates.
+            </summary>
+            <param name="coordinates">
+            	The <see cref="T:Reimers.Core.Maps.ICoordinates"/> to add to the rectangle.
+            </param>
+            <returns>
+            	The bounds containing the added coordinates.
+            </returns>
+        </member>
+        <member name="M:Reimers.Core.Maps.GeoRectangleContract.Add(Reimers.Core.Maps.IGeoRectangle)">
+            <summary>
+            	Extends the rectangle to contain the passed <see cref="T:Reimers.Core.Maps.IGeoRectangle"/>.
+            </summary>
+            <param name="bounds">
+            	The <see cref="T:Reimers.Core.Maps.IGeoRectangle"/> to add to the rectangle.
+            </param>
+            <returns>
+            	The bounds containing the added <see cref="T:Reimers.Core.Maps.IGeoRectangle"/>.
+            </returns>
+        </member>
+        <member name="M:Reimers.Core.Maps.GeoRectangleContract.Contains(Reimers.Core.Maps.ICoordinates)">
+            <summary>
+            	Returns whether the bounding rectangle contains the passed coordinates.
+            </summary>
+            <param name="coordinates">
+            	The <see cref="T:Reimers.Core.Maps.ICoordinates"/> to check.
+            </param>
+            <returns>
+            	Returns true if the coordinates are inside the bounding rectangle, otherwise false.
+            </returns>
+        </member>
+        <member name="M:Reimers.Core.Maps.GeoRectangleContract.Contains(Reimers.Core.Maps.IGeoRectangle)">
+            <summary>
+            	Returns whether the bounding rectangle contains the passed bounding box.
+            </summary>
+            <param name="bounds">
+            	The <see cref="T:Reimers.Core.Maps.IGeoRectangle"/> to check.
+            </param>
+            <returns>
+            	Returns true if the bounds are inside the bounding rectangle, otherwise false.
+            </returns>
+        </member>
+        <member name="M:Reimers.Core.Maps.GeoRectangleContract.Invariants">
+            <summary>
+            Defines the code contract invariants.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoRectangleContract.Center">
+            <summary>
+            	Gets Center.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoRectangleContract.MaxLatitude">
+            <summary>
+            	Gets or sets maximum latitude.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoRectangleContract.MaxLongitude">
+            <summary>
+            	Gets or sets maximum longitude.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoRectangleContract.MinLatitude">
+            <summary>
+            	Gets or sets minimum latitude.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoRectangleContract.MinLongitude">
+            <summary>
+            	Gets or sets minimum longitude.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.IGeoPolygon">
+            <summary>
+            	Public interface for polygon.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.IOverlay">
+            <summary>
+            	Public interface for a map overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IOverlay.ID">
+            <summary>
+            Gets or sets the unique ID for the overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IOverlay.Bounds">
+            <summary>
+            	Gets the geographic bounds for the overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IOverlay.Name">
+            <summary>
+            Gets or sets the name of the overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IOverlay.Description">
+            <summary>
+            Gets or sets the description of the overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoPolygon.Points">
+            <summary>
+            	Gets the <see cref="T:Reimers.Core.Maps.ICoordinates"/> defining the perimeter.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoPolygon.InnerHoles">
+            <summary>
+            Gets the inner holes of the polygon.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.GeoPolygonContract">
+            <summary>
+            	The geo polygon contract.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Maps.GeoPolygonContract.ToKML(Reimers.Core.Kml.IKmlWriter)">
+            <summary>
+            	Returns a KML representation of the object.
+            </summary>
+            <param name = "writer">
+            	The writer to use for the document.
+            </param>
+        </member>
+        <member name="M:Reimers.Core.Maps.GeoPolygonContract.Invariant">
+            <summary>
+            	Sets the contract invariants.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolygonContract.Bounds">
+            <summary>
+            	Gets the polygon bounds.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolygonContract.ID">
+            <summary>
+            	Gets or sets the unique ID.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolygonContract.Name">
+            <summary>
+            Gets or sets the name of the overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolygonContract.Description">
+            <summary>
+            Gets or sets the description of the overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolygonContract.Points">
+            <summary>
+            	Gets the polygon vertices.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolygonContract.InnerHoles">
+            <summary>
+            Gets the polygon's inner holes.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.IGeoPolyline">
+            <summary>
+            	Public interface for polyline.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoPolyline.Points">
+            <summary>
+            	Gets the vertices for the polyline.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IGeoPolyline.Color">
+            <summary>
+            Gets or sets the color of the polyline.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.GeoPolylineContract">
+            <summary>
+            	The geo polyline contract.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Maps.GeoPolylineContract.ToKML(Reimers.Core.Kml.IKmlWriter)">
+            <summary>
+            	Creates a KML representation of the object.
+            </summary>
+            <param name = "writer">
+            	The writer to use for the document.
+            </param>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolylineContract.Bounds">
+            <summary>
+            	Gets Bounds.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolylineContract.ID">
+            <summary>
+            	Gets or sets ID.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolylineContract.Name">
+            <summary>
+            Gets or sets the name of the overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolylineContract.Description">
+            <summary>
+            Gets or sets the description of the overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.GeoPolylineContract.Points">
+            <summary>
+            	Gets Points.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.ILocalSearchResult">
+            <summary>
+            Defines the public interface for local search results.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ILocalSearchResult.Title">
+            <summary>
+            Gets the title of the result.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ILocalSearchResult.Url">
+            <summary>
+            Gets a URL for the result.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ILocalSearchResult.Point">
+            <summary>
+            Gets the geographic coordinates for the result.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ILocalSearchResult.Address">
+            <summary>
+            Gets the address of the result.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.ILocalSearchResult.PhoneNumber">
+            <summary>
+            Gets a phone number related to the result.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.OverlayContract">
+            <summary>
+            	The overlay contract.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.OverlayContract.ID">
+            <summary>
+            Gets or sets the unique ID for the overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.OverlayContract.Bounds">
+            <summary>
+            	Gets Bounds.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.OverlayContract.Name">
+            <summary>
+            Gets or sets the name of the overlay.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.OverlayContract.Description">
+            <summary>
+            Gets or sets the description of the overlay.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.IOverlayCollection">
+            <summary>
+            	Defines the public interface for an overlay collection.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IOverlayCollection.Bounds">
+            <summary>
+            	Gets the combined bounds of all the overlays in the collection.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Maps.OverlayCollectionContract.ToKML(Reimers.Core.Kml.IKmlWriter)">
+            <summary>
+            	Creates a KML representation of the object.
+            </summary>
+            <param name = "writer">
+            	The writer to use for the document.
+            </param>
+        </member>
+        <member name="T:Reimers.Core.Maps.IWikipediaEntry">
+            <summary>
+            	Public interface for retrieved Wikipedia entries.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IWikipediaEntry.Points">
+            <summary>
+            	Gets the geographic coordinates of the entry.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IWikipediaEntry.Text">
+            <summary>
+            	Gets the text of the entry.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IWikipediaEntry.Html">
+            <summary>
+            Gets the body text as Html.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IWikipediaEntry.Title">
+            <summary>
+            	Gets the Title of the entry.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IWikipediaEntry.Categories">
+            <summary>
+            Gets categories associated with the entry.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IWikipediaEntry.Keywords">
+            <summary>
+            Gets categories associated with the entry.
+            </summary>
+        </member>
+        <member name="P:Reimers.Core.Maps.IWikipediaEntry.Url">
+            <summary>
+            	Gets the Wikipedia URL of the entry.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Maps.WikipediaEntryContract">
+            <summary>
+            	Defines the code contracts for <see cref="T:Reimers.Core.Maps.IWikipediaEntry"/>.
+            </summary>
+        </member>
+        <member name="T:Reimers.Core.Utilities">
+            <summary>
+            The utilities.
+            </summary>
+        </member>
+        <member name="M:Reimers.Core.Utilities.ColorToHex(System.Drawing.Color)">
+            <summary>
+            The color to hex.
+            </summary>
+            <param name="color">
+            The color.
+            </param>
+            <returns>
+            The color as a hex string.
+            </returns>
+        </member>
+        <member name="M:Reimers.Core.Utilities.Ellipse(System.String,System.Int32)">
+            <summary>
+            The ellipse.
+            </summary>
+            <param name="input">
+            The input.
+            </param>
+            <param name="maxLength">
+            The max length.
+            </param>
+            <returns>
+            The input string up to the max length.
+            </returns>
+        </member>
+    </members>
+</doc>
