@@ -11,7 +11,7 @@ namespace ScholarBarter.Controllers
     public class TestEmailController : ApiController
     {
         [HttpPost]
-        public void testEmail()
+        public string testEmail()
         {
             Email e = new Email
             {
@@ -21,7 +21,15 @@ namespace ScholarBarter.Controllers
                 Body = "<h2>Testing</h2>"
             };
 
-            e.send();
+            try
+            {
+                e.send();
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Success";
         }
     }
 }
