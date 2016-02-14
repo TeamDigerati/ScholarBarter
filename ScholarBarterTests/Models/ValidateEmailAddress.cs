@@ -24,5 +24,13 @@ namespace ScholarBarterTests.Models.Test
             Assert.IsFalse(util.IsValidEmail(emailAddresses));
 
         }
+        [TestMethod]
+        public void invalidfomratEmailTest()
+        {
+            EmailValidation util = new EmailValidation();
+            string emailAddresses = "asinghcpp.edu";
+            Assert.IsFalse(util.IsValidEmail(emailAddresses));
+
+        }
     }
 }
