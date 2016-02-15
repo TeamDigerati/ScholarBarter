@@ -309,6 +309,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Sql\Users.sql" />
     <Content Include="WebForm1.aspx" />
     <None Include="Properties\PublishProfiles\ScholarBarter.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
@@ -366,7 +367,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Documents\" />
-    <Folder Include="Sql\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
