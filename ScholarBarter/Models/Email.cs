@@ -25,7 +25,7 @@ namespace ScholarBarter.Models
             }
         }
 
-        private bool isValid
+        public bool isValid
         {
             get
             {
