@@ -214,6 +214,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Library\EmailValidation.cs" />
+    <Compile Include="Library\ValidatePhone.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Exceptions\InvalidEmailException.cs" />
     <Compile Include="Models\Listing.cs" />

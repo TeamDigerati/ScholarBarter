@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Models\EmailTests.cs" />
     <Compile Include="Models\ValidateEmailAddress.cs" />
+    <Compile Include="Models\ValidatePhoneTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
