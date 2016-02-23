@@ -86,7 +86,7 @@ namespace ScholarBarter.Models.DataContexts
 		
 		private bool _Active;
 		
-		private string _Type;
+		private string _ListingType;
 		
 		private string _Description;
 		
@@ -102,8 +102,8 @@ namespace ScholarBarter.Models.DataContexts
     partial void OnUserIdChanged();
     partial void OnActiveChanging(bool value);
     partial void OnActiveChanged();
-    partial void OnTypeChanging(string value);
-    partial void OnTypeChanged();
+    partial void OnListingTypeChanging(string value);
+    partial void OnListingTypeChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
     partial void OnCreationTimeChanging(System.DateTime value);
@@ -115,7 +115,7 @@ namespace ScholarBarter.Models.DataContexts
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ListingId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ListingId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int ListingId
 		{
 			get
@@ -175,22 +175,22 @@ namespace ScholarBarter.Models.DataContexts
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string Type
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ListingType", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string ListingType
 		{
 			get
 			{
-				return this._Type;
+				return this._ListingType;
 			}
 			set
 			{
-				if ((this._Type != value))
+				if ((this._ListingType != value))
 				{
-					this.OnTypeChanging(value);
+					this.OnListingTypeChanging(value);
 					this.SendPropertyChanging();
-					this._Type = value;
-					this.SendPropertyChanged("Type");
-					this.OnTypeChanged();
+					this._ListingType = value;
+					this.SendPropertyChanged("ListingType");
+					this.OnListingTypeChanged();
 				}
 			}
 		}

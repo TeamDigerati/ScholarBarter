@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Helpers;
 using System.Web.Http;
 //using System.Web.Mvc;
-using ScholarBarter.Models;
 using ScholarBarter.Models.DataContexts;
 
 namespace ScholarBarter.Controllers
@@ -16,12 +12,12 @@ namespace ScholarBarter.Controllers
         public string GetAllListings()
         {
             ListingsDataContext dc = new ListingsDataContext();
-                      
-            var lstg =
+
+            var result =
                 from a in dc.GetTable<Listing>()
                 select a;
 
-            return Json.Encode(lstg);
+            return Json.Encode(result);
         }
     }
 }

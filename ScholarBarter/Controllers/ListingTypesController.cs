@@ -5,16 +5,15 @@ using ScholarBarter.Models.DataContexts;
 
 namespace ScholarBarter.Controllers
 {
-    public class ActiveListingsController : ApiController
+    public class ListingTypesController : ApiController
     {
         [HttpGet]
-        public string GetActiveListings()
+        public string GetListingTypes()
         {
-            ListingsDataContext dc = new ListingsDataContext();
+            ListingTypeDataContext dc = new ListingTypeDataContext();
 
             var result =
-                from a in dc.GetTable<Listing>()
-                where a.Active
+                from a in dc.GetTable<ListingType>()
                 select a;
 
             return Json.Encode(result);
