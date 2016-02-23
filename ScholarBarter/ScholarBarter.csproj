@@ -206,9 +206,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\ActiveListingsController.cs" />
+    <Compile Include="Controllers\ActiveListingTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AllListingsController.cs" />
-    <Compile Include="Controllers\ListingTypesController.cs" />
+    <Compile Include="Controllers\AllListingTypesController.cs" />
     <Compile Include="Controllers\TestEmailController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\UsersJsonController.cs" />

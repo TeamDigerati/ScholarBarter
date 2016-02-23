@@ -5,10 +5,10 @@ using ScholarBarter.Models.DataContexts;
 
 namespace ScholarBarter.Controllers
 {
-    public class ListingTypesController : ApiController
+    public class AllListingTypesController : ApiController
     {
         [HttpGet]
-        public string GetListingTypes()
+        public string GetAllListingTypes()
         {
             ListingTypeDataContext dc = new ListingTypeDataContext();
 
