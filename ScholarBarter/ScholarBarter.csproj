@@ -311,6 +311,7 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Sql\Listings.sql" />
+    <Content Include="Sql\ListingTypes.sql" />
     <Content Include="Sql\Users.sql" />
     <Content Include="Models\DataContexts\Listings.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
