@@ -2,14 +2,19 @@
 using System.Web.Helpers;
 using System.Web.Http;
 using ScholarBarter.Models.DataContexts;
+using ScholarBarter.Models;
+using ScholarBarter.Models.Exceptions;
 
 namespace ScholarBarter.Controllers
 {
     public class ActiveListingsController : ApiController
     {
         [HttpGet]
-        public string GetActiveListings()
+        public string GetActiveListings(string sessionKey)
         {
+            if(!SessionValidator.Validate(sessionKey))
+                return Json.Encode(new InvalidSessionException());
+	        
             ListingsDataContext dc = new ListingsDataContext();
 
             var result =

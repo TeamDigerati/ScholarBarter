@@ -1,16 +1,20 @@
 ﻿using System.Linq;
 using System.Web.Helpers;
 using System.Web.Http;
-//using System.Web.Mvc;
+using ScholarBarter.Models;
 using ScholarBarter.Models.DataContexts;
+using ScholarBarter.Models.Exceptions;
 
 namespace ScholarBarter.Controllers
 {
     public class AllListingsController : ApiController
     {
         [HttpGet]
-        public string GetAllListings()
+        public string GetAllListings(string sessionKey)
         {
+            if (!SessionValidator.Validate(sessionKey))
+                return Json.Encode(new InvalidSessionException());
+
             ListingsDataContext dc = new ListingsDataContext();
 
             var result =

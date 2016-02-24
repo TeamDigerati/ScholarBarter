@@ -88,6 +88,8 @@ namespace ScholarBarter.Models.DataContexts
 		
 		private string _ListingType;
 		
+		private string _Title;
+		
 		private string _Description;
 		
 		private System.DateTime _CreationTime;
@@ -104,6 +106,8 @@ namespace ScholarBarter.Models.DataContexts
     partial void OnActiveChanged();
     partial void OnListingTypeChanging(string value);
     partial void OnListingTypeChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
     partial void OnCreationTimeChanging(System.DateTime value);
@@ -195,7 +199,27 @@ namespace ScholarBarter.Models.DataContexts
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="Text", UpdateCheck=UpdateCheck.Never)]
 		public string Description
 		{
 			get

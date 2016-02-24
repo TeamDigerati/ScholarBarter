@@ -210,9 +210,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AllListingsController.cs" />
     <Compile Include="Controllers\AllListingTypesController.cs" />
-    <Compile Include="Controllers\TestEmailController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\UsersJsonController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -231,7 +228,8 @@
     </Compile>
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Exceptions\InvalidEmailException.cs" />
-    <Compile Include="Models\OldListing.cs" />
+    <Compile Include="Models\Exceptions\InvalidSessionException.cs" />
+    <Compile Include="Models\SessionValidator.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="userLocation.aspx.cs">
